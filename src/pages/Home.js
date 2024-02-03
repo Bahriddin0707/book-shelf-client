@@ -19,11 +19,14 @@ function Home() {
       }
 
       try {
-        const response = await fetch("http://localhost:4000/api/books/", {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
+        const response = await fetch(
+          "https://book-shelf-server.onrender.com/api/books/",
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch books");

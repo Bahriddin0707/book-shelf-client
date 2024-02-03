@@ -21,12 +21,15 @@ function BookDetails({ book }) {
       return;
     }
 
-    const response = await fetch(`http://localhost:4000/api/books/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+    const response = await fetch(
+      `https://book-shelf-server.onrender.com/api/books/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     const data = await response.json();
 
     if (response.ok) {

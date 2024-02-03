@@ -6,7 +6,7 @@ function BookOverview() {
 
   return (
     <div className="books-overview">
-      {books ? (
+      {books?.length > 0 ? (
         <h3>
           You have got{" "}
           <span>

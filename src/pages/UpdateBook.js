@@ -30,14 +30,17 @@ function UpdateBook() {
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:4000/api/books/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-      body: JSON.stringify({ cover, pages, published }),
-    });
+    const response = await fetch(
+      `https://book-shelf-server.onrender.com/api/books/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+        body: JSON.stringify({ cover, pages, published }),
+      }
+    );
 
     const data = await response.json();
 
