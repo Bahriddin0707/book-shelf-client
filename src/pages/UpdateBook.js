@@ -42,8 +42,6 @@ function UpdateBook() {
       }
     );
 
-    const data = await response.json();
-
     if (response.ok) {
       navigate("/");
       notify(cover);

@@ -2,6 +2,9 @@ import { createContext, useReducer } from "react";
 
 export const BooksContext = createContext();
 
+const initialState = {
+  books: null,
+};
 export const booksReducer = (state, action) => {
   switch (action.type) {
     case "SET_BOOKS":
@@ -36,9 +39,7 @@ export const booksReducer = (state, action) => {
 };
 
 export const BookContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(booksReducer, {
-    books: null,
-  });
+  const [state, dispatch] = useReducer(booksReducer, initialState);
 
   return (
     <BooksContext.Provider value={{ ...state, dispatch }}>

@@ -10,10 +10,10 @@ import BookOverview from "../components/BookOverview";
 function Home() {
   const { books, dispatch } = useBooksContext();
   const { user } = useAuthContext();
-  const { training } = useSearchContext();
+  const { search } = useSearchContext();
 
   useEffect(() => {
-    const fetchWorkouts = async () => {
+    const fetchBooks = async () => {
       if (!user) {
         return;
       }
@@ -34,14 +34,14 @@ function Home() {
 
         const data = await response.json();
         dispatch({ type: "SET_BOOKS", payload: data.books });
-        dispatch({ type: "SEARCH_BOOK", payload: training });
+        dispatch({ type: "SEARCH_BOOK", payload: search });
       } catch (error) {
         console.error("Error fetching books:", error.message);
       }
     };
 
-    fetchWorkouts();
-  }, [dispatch, user, training]);
+    fetchBooks();
+  }, [dispatch, user, search]);
 
   return (
     <div className="home">

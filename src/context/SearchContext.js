@@ -6,7 +6,7 @@ export const searchReducer = (state, action) => {
   switch (action.type) {
     case "SET_SEARCH":
       return {
-        training: action.payload,
+        search: action.payload,
       };
     default:
       return state;
@@ -15,7 +15,7 @@ export const searchReducer = (state, action) => {
 
 export const SearchContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(searchReducer, {
-    training: "",
+    search: "",
   });
 
   return (

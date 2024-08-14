@@ -5,7 +5,9 @@ export const useSearchContext = () => {
   const context = useContext(SearchContext);
 
   if (!context) {
-    throw Error("useAuthContext must be used inside an AuthContextProvider");
+    throw Error(
+      "useSearchContext must be used inside an SearchContextProvider"
+    );
   }
 
   return context;
